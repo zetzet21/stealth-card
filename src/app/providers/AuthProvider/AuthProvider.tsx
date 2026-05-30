@@ -1,5 +1,5 @@
-/*
 import { useEffect, useState } from "react";
+import { seedDemoSessionIfNeeded } from "../../../shared/mocks/demoBusinessUser";
 import { AuthContext } from "./context";
 
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
@@ -9,6 +9,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    seedDemoSessionIfNeeded();
     const token = localStorage.getItem("token");
     setIsAuth(Boolean(token));
     setIsLoading(false);
@@ -30,4 +31,3 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
     </AuthContext.Provider>
   );
 };
-*/
